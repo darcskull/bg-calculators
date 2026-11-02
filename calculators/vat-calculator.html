@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДДС Калкулатор | Изчисляване на ДДС 20% и 9% | България 2026 (€)</title>
+    <meta name="description" content="Безплатен ДДС калкулатор за България в евро. Изчислявайте ДДС за стандартна (20%) и намалена (9%) ставка. С и без ДДС, подходящ за търговци и фирми.">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Schema.org FAQPage markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Каква е стандартната ставка за ДДС в България?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Стандартната ставка за ДДС в България е 20%. Тя се прилага за повечето стоки и услуги, освен тези, които са обложени с намалена ставка или са освободени от ДДС."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Кои стоки и услуги са с намалена ставка ДДС от 9%?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Намалената ставка от 9% се прилага за определени стоки и услуги като: хотелиерски услуги, кетъринг услуги, книги, учебници, детски храни, лекарства и други. Пълният списък е определен в Закона за данък върху добавената стойност."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Как да изчисля ДДС от сума без данък?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "За да изчислите ДДС от сума без данък, умножете сумата по ставката на ДДС. Например, за 100 лв. с 20% ДДС: 100 × 0.20 = 20 лв. ДДС. Общата сума с ДДС ще бъде 120 лв."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Как да извлека сумата без ДДС от обща сума?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "За да извлечете сумата без ДДС от обща сума, разделете общата сума на (1 + ставка на ДДС). Например, за 120 лв. с 20% ДДС: 120 ÷ 1.20 = 100 лв. (сума без ДДС)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Кой трябва да регистрира ДДС в България?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Всички лица, които извършват облагаеми доставки в България и чийто оборот надвишава 50,000 лв. за период от 12 месеца, са задължени да се регистрират по ДДС. Също така, доброволната регистрация е възможна дори под този праг."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ДДС Калкулатор</h1>
+            <p>Изчисляване на ДДС за стандартна (20%) и намалена (9%) ставка</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="../index.html">Начало</a></li>
+                <li><a href="net-salary.html">Нетна заплата</a></li>
+                <li><a href="rent-tax-calculator.html">Данък върху наем</a></li>
+            </ul>
+        </nav>
+
+        <form class="calculator-form" id="vatForm">
+            <div class="form-group">
+                <label for="amount">Сума (€):</label>
+                <input type="number" id="amount" min="0" step="0.01" placeholder="Напр. 51">
+                <div class="error" id="amountError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="vatRate">Ставка на ДДС:</label>
+                <select id="vatRate">
+                    <option value="0.20">Стандартна - 20%</option>
+                    <option value="0.09">Намалена - 9%</option>
+                    <option value="0">Без ДДС - 0%</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="calculationType">Тип изчисление:</label>
+                <select id="calculationType">
+                    <option value="add">Добави ДДС (сума без ДДС → сума с ДДС)</option>
+                    <option value="remove">Извади ДДС (сума с ДДС → сума без ДДС)</option>
+                    <option value="vatOnly">Само ДДС</option>
+                </select>
+            </div>
+
+            <button type="submit">Изчисли ДДС</button>
+        </form>
+
+        <div class="results" id="results">
+            <h2>Резултат</h2>
+            <div class="result-row">
+                <span class="result-label">Входна сума:</span>
+                <span class="result-value" id="resultInput">0.00 лв.</span>
+            </div>
+            <div class="result-row">
+                <span class="result-label">Ставка на ДДС:</span>
+                <span class="result-value" id="resultRate">20%</span>
+            </div>
+            <div class="result-row">
+                <span class="result-label">ДДС сума:</span>
+                <span class="result-value" id="resultVat">0.00 лв.</span>
+            </div>
+            <div class="result-row total">
+                <span class="result-label">Крайна сума:</span>
+                <span class="result-value" id="resultTotal">0.00 лв.</span>
+            </div>
+        </div>
+
+        <div class="examples">
+            <h3>Примери за изчисление</h3>
+            <div class="example">
+                <h4>Пример 1: Добавяне на стандартно ДДС</h4>
+                <p>Сума без ДДС: 51 € | ДДС (20%): 10.23 € | Сума с ДДС: 61.23 €</p>
+            </div>
+            <div class="example">
+                <h4>Пример 2: Изваждане на ДДС от обща сума</h4>
+                <p>Сума с ДДС: 123 € | ДДС (20%): 20.45 € | Сума без ДДС: 102.55 €</p>
+            </div>
+            <div class="example">
+                <h4>Пример 3: Намалена ставка за книги</h4>
+                <p>Цена без ДДС: 26 € | ДДС (9%): 2.30 € | Цена с ДДС: 28.30 €</p>
+            </div>
+        </div>
+
+        <section class="content">
+            <h2>Какво е ДДС и как се изчислява?</h2>
+            <p>
+                ДДС (Данък върху добавената стойност) е косвен данък, който се начислява върху стойността, добавена към стоките и услугите на всеки етап от производствения и търговския процес. В България ДДС се регулира от Закона за данък върху добавената стойност и се администрира от Националната агенция за приходите (НАП).
+            </p>
+            <p>
+                Стандартната ставка на ДДС в България е 20%, която се прилага за повечето стоки и услуги. Намалената ставка от 9% се прилага за определени категории като хотелиерски услуги, кетъринг, книги, учебници, детски храни и лекарства. Съществува и ставка от 0% за международен транспорт и някои други специфични случаи.
+            </p>
+            <p>
+                За търговците и фирмите е важно правилно да изчисляват ДДС, за да избегнат грешки в фактурите и да спазват данъчното законодателство. Данъкоплатците, чийто оборот надвишава 50,000 лв. за период от 12 месеца, са задължени да се регистрират по ДДС и да издават фактури с ДДС.
+            </p>
+            <p>
+                Този калкулатор ви помага бързо да изчислите ДДС за различни ставки и сценарии – дали да добавите ДДС към сума без данък, да извлечете сумата без ДДС от обща сума, или да изчислите само данъка. Всички изчисления са базирани на актуалните ставки за 2026 година.
+            </p>
+        </section>
+
+        <section class="faq">
+            <h2>Често задавани въпроси</h2>
+
+            <div class="faq-item">
+                <h3>Каква е стандартната ставка за ДДС в България?</h3>
+                <p>
+                    Стандартната ставка за ДДС в България е 20%. Тя се прилага за повечето стоки и услуги, освен тези, които са обложени с намалена ставка или са освободени от ДДС.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Кои стоки и услуги са с намалена ставка ДДС от 9%?</h3>
+                <p>
+                    Намалената ставка от 9% се прилага за определени стоки и услуги като: хотелиерски услуги, кетъринг услуги, книги, учебници, детски храни, лекарства и други. Пълният списък е определен в Закона за данък върху добавената стойност.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Как да изчисля ДДС от сума без данък?</h3>
+                <p>
+                    За да изчислите ДДС от сума без данък, умножете сумата по ставката на ДДС. Например, за 100 лв. с 20% ДДС: 100 × 0.20 = 20 лв. ДДС. Общата сума с ДДС ще бъде 120 лв.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Как да извлека сумата без ДДС от обща сума?</h3>
+                <p>
+                    За да извлечете сумата без ДДС от обща сума, разделете общата сума на (1 + ставка на ДДС). Например, за 120 лв. с 20% ДДС: 120 ÷ 1.20 = 100 лв. (сума без ДДС).
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Кой трябва да регистрира ДДС в България?</h3>
+                <p>
+                    Всички лица, които извършват облагаеми доставки в България и чийто оборот надвишава 50,000 лв. за период от 12 месеца, са задължени да се регистрират по ДДС. Също така, доброволната регистрация е възможна дори под този праг.
+                </p>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 BG Calculators. Всички права запазени.</p>
+            <p>
+                <a href="../privacy.html">Политика за поверителност</a> |
+                <a href="../about.html">За нас</a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="../js/rates_loader.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        // Wait for rates to load before enabling form
+        let ratesLoaded = false;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadRates().then(() => {
+                ratesLoaded = true;
+                console.log('Rates loaded, calculator ready');
+            });
+        });
+        // Form submission
+        document.getElementById('vatForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Check if rates are loaded
+            if (!ratesLoaded) {
+                alert('Зареждане на ставките... Моля изчакайте и опитайте отново.');
+                return;
+            }
+
+            // Hide previous errors
+            hideError('amountError');
+
+            // Get values
+            const amount = parseFloat(document.getElementById('amount').value);
+            const vatRate = parseFloat(document.getElementById('vatRate').value);
+            const calculationType = document.getElementById('calculationType').value;
+
+            // Validate
+            if (!isValidNumber(amount) || amount < 0) {
+                showError('amountError', 'Моля въведете валидна сума');
+                return;
+            }
+
+            let vatAmount, totalAmount, inputAmount;
+
+            switch (calculationType) {
+                case 'add':
+                    // Add VAT: amount is without VAT
+                    inputAmount = amount;
+                    vatAmount = amount * vatRate;
+                    totalAmount = amount + vatAmount;
+                    break;
+                case 'remove':
+                    // Remove VAT: amount is with VAT
+                    inputAmount = amount;
+                    totalAmount = amount;
+                    vatAmount = amount * vatRate / (1 + vatRate);
+                    inputAmount = amount - vatAmount;
+                    break;
+                case 'vatOnly':
+                    // VAT only: amount is base, show only VAT
+                    inputAmount = amount;
+                    vatAmount = amount * vatRate;
+                    totalAmount = vatAmount;
+                    break;
+            }
+
+            // Display results
+            document.getElementById('resultInput').textContent = formatBGN(inputAmount);
+            document.getElementById('resultRate').textContent = formatPercent(vatRate);
+            document.getElementById('resultVat').textContent = formatBGN(vatAmount);
+            document.getElementById('resultTotal').textContent = formatBGN(totalAmount);
+
+            // Show results
+            document.getElementById('results').classList.add('visible');
+        });
+    </script>
+</body>
+</html>
