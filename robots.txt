@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yourusername.github.io/bg-calculators/sitemap.xml
+Sitemap: https://darcskull.github.io/bg-calculators/sitemap.xml
