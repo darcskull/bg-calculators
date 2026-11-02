@@ -3,369 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Данък върху наем калкулатор | България 2026 (€)</title>
-    <meta name="description" content="Безплатен калкулатор за данък върху наемен доход в България в евро. Изчислете данъка от наем на недвижими имоти с допустими разходи и такса смет.">
+    <title>Калкулатор за данък върху доход от наем | България</title>
+    <meta name="description" content="Ориентировъчно изчислете данъка върху доход от наем за физическо лице в евро с 10% нормативно признати разходи и данък 10%.">
     <link rel="stylesheet" href="../css/style.css">
-
-    <!-- Schema.org FAQPage markup -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "Какъв е данъкът върху наемен доход в България?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Данъкът върху наемен доход в България е 10% от нетния доход. Нетният доход се получава след deducting на допустимите разходи от брутния наем. Максимално deducting на разходи е 25% от брутния наем, освен ако докажете действителни по-високи разходи."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Какви са допустимите разходи за наемен доход?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Допустимите разходи могат да бъдат или фиксиран процент (25% от брутния наем), или действителни разходи като поддръжка, ремонти, данъци върху имота, такса смет и други свързани с имота разходи. Трябва да изберете едно от двете и да го прилагате последователно."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Трябва ли да плащам такса смет за наемани имоти?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Да, таксата смет е задължителна за всички имоти, независимо дали са обитавани от собственика или наемани. Размерът на таксата се определя от общината и се различава по различни градове и квартали. Таксата се плаща годишно."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Кога трябва да декларирам наемен доход?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Наемният доход трябва да се декларира annually пред НАП чрез годишна данъчна декларация (форма 1). Декларацията се подава до 30 април на следващата година за доходите от предходната година. Данъкът се плаща до 30 юни."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Мога ли да не декларирам наемен доход?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Не, декларирането на наемен доход е задължително по закон. Неподадена декларация или укриване на доход може да доведе до санкции, лихви и данъчни проверки. НАП има достъп до банкови транзакции и може да открие недекларирани доходи."
-                }
-            }
+        "@context":"https://schema.org",
+        "@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"Как се изчислява данъкът върху доход от наем?","acceptedAnswer":{"@type":"Answer","text":"За опростения стандартен случай доходът се намалява с 10% нормативно признати разходи, а върху останалата данъчна основа се прилага ставка 10%. Има законови изключения и специфични случаи."}},
+            {"@type":"Question","name":"Мога ли да приспадна действителните разходи?","acceptedAnswer":{"@type":"Answer","text":"Калкулаторът не приспада действителни разходи. НАП посочва нормативно признати разходи, като има изключения, например определен режим на етажна собственост. Проверете указанията на НАП за своя случай."}},
+            {"@type":"Question","name":"Кога се декларира и плаща данъкът?","acceptedAnswer":{"@type":"Answer","text":"Сроковете зависят от това кой е наемателят и от периода на дохода. НАП публикува срокове за авансов данък и годишно деклариране; проверете актуалните срокове за конкретната година."}}
         ]
     }
     </script>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Данък върху наем</h1>
-            <p>Изчислете данъка върху наемен доход от недвижими имоти</p>
-        </header>
-
-        <nav>
-            <ul>
-                <li><a href="../index.html">Начало</a></li>
-                <li><a href="net-salary.html">Нетна заплата</a></li>
-                <li><a href="vat-calculator.html">ДДС Калкулатор</a></li>
-            </ul>
-        </nav>
-
-        <form class="calculator-form" id="rentForm">
+        <header><h1>Калкулатор за данък върху наем</h1><p>Опростена ориентировъчна сметка за доход от наем на физическо лице</p></header>
+        <nav><ul>
+            <li><a href="../index.html">Начало</a></li>
+            <li><a href="net-salary.html">Нетна заплата</a></li>
+            <li><a href="vat-calculator.html">ДДС калкулатор</a></li>
+        </ul></nav>
+        <form class="calculator-form" id="rentForm" novalidate>
             <div class="form-group">
                 <label for="monthlyRent">Месечен наем (€):</label>
-                <input type="number" id="monthlyRent" min="0" step="0.01" placeholder="Напр. 256">
+                <input type="number" id="monthlyRent" min="0" step="0.01" inputmode="decimal" required>
                 <div class="error" id="monthlyRentError"></div>
             </div>
-
             <div class="form-group">
-                <label for="months">Брой месеци на наемане:</label>
-                <input type="number" id="months" min="1" max="12" step="1" value="12">
+                <label for="months">Брой месеци с получен наем:</label>
+                <input type="number" id="months" min="1" max="12" step="1" value="12" required>
                 <div class="error" id="monthsError"></div>
             </div>
-
-            <div class="form-group">
-                <label for="expenseType">Тип разходи:</label>
-                <select id="expenseType">
-                    <option value="percentage">Фиксиран процент (25% от наема)</option>
-                    <option value="actual">Действителни разходи</option>
-                </select>
-            </div>
-
-            <div class="form-group" id="actualExpensesGroup" style="display: none;">
-                <label for="actualExpenses">Действителни разходи за годината (€):</label>
-                <input type="number" id="actualExpenses" min="0" step="0.01" placeholder="Напр. 613">
-                <div class="error" id="actualExpensesError"></div>
-            </div>
-
-            <div class="form-group">
-                <label for="municipality">Община (за такса смет):</label>
-                <select id="municipality">
-                    <option value="Sofia">София</option>
-                    <option value="Plovdiv">Пловдив</option>
-                    <option value="Varna">Варна</option>
-                    <option value="Burgas">Бургас</option>
-                    <option value="Ruse">Русе</option>
-                    <option value="StaraZagora">Стара Загора</option>
-                    <option value="Pleven">Плевен</option>
-                    <option value="Dobrich">Добрич</option>
-                    <option value="Sliven">Сливен</option>
-                    <option value="Shumen">Шумен</option>
-                    <option value="other">Друга община</option>
-                </select>
-            </div>
-
-            <div class="form-group" id="customWasteTaxGroup" style="display: none;">
-                <label for="customWasteTax">Такса смет (€ годишно):</label>
-                <input type="number" id="customWasteTax" min="0" step="0.01" placeholder="Напр. 31">
-                <div class="error" id="customWasteTaxError"></div>
-            </div>
-
-            <button type="submit">Изчисли данък</button>
+            <p>Сметката използва стандартните нормативно признати разходи и не обхваща изключения, осигурителни вноски, съсобственост или други доходи.</p>
+            <button type="submit">Изчисли ориентировъчен данък</button>
         </form>
-
-        <div class="results" id="results">
-            <h2>Резултат</h2>
-            <div class="result-row">
-                <span class="result-label">Брутен наем за годината:</span>
-                <span class="result-value" id="resultGrossRent">0.00 лв.</span>
-            </div>
-            <div class="result-row">
-                <span class="result-label">Допустими разходи:</span>
-                <span class="result-value" id="resultExpenses">0.00 лв.</span>
-            </div>
-            <div class="result-row">
-                <span class="result-label">Нетен доход (облагаем):</span>
-                <span class="result-value" id="resultNetIncome">0.00 лв.</span>
-            </div>
-            <div class="result-row">
-                <span class="result-label">Данък върху дохода (10%):</span>
-                <span class="result-value" id="resultIncomeTax">0.00 лв.</span>
-            </div>
-            <div class="result-row">
-                <span class="result-label">Такса смет (годишно):</span>
-                <span class="result-value" id="resultWasteTax">0.00 лв.</span>
-            </div>
-            <div class="result-row total">
-                <span class="result-label">Общо дължимо:</span>
-                <span class="result-value" id="resultTotalDue">0.00 лв.</span>
-            </div>
-            <div class="result-row">
-                <span class="result-label">Нетен доход след данъци:</span>
-                <span class="result-value" id="resultNetAfterTax">0.00 лв.</span>
-            </div>
+        <div class="results" id="results" aria-live="polite">
+            <h2>Ориентировъчен резултат</h2>
+            <div class="result-row"><span class="result-label">Брутен доход от наем:</span><span class="result-value" id="resultGrossRent">—</span></div>
+            <div class="result-row"><span class="result-label">Нормативно признати разходи:</span><span class="result-value" id="resultExpenses">—</span></div>
+            <div class="result-row"><span class="result-label">Опростена данъчна основа:</span><span class="result-value" id="resultNetIncome">—</span></div>
+            <div class="result-row total"><span class="result-label">Ориентировъчен данък:</span><span class="result-value" id="resultIncomeTax">—</span></div>
+            <div class="result-row"><span class="result-label">Остатък след този данък:</span><span class="result-value" id="resultNetAfterTax">—</span></div>
         </div>
-
-        <div class="examples">
-            <h3>Примери за изчисление</h3>
-            <div class="example">
-                <h4>Пример 1: Стандартен наем в София</h4>
-                <p>Наем: 256 €/мес. (12 месеца) | Разходи: 25% | Данък: 230 € | Такса смет: 31 € | Общо: 261 €</p>
-            </div>
-            <div class="example">
-                <h4>Пример 2: Висок наем с действителни разходи</h4>
-                <p>Наем: 512 €/мес. (12 месеца) | Разходи: 1023 € | Данък: 460 € | Такса смет: 31 € | Общо: 491 €</p>
-            </div>
-            <div class="example">
-                <h4>Пример 3: Сезонен наем (6 месеца)</h4>
-                <p>Наем: 204 €/мес. (6 месеца) | Разходи: 25% | Данък: 92 € | Такса смет: 31 € | Общо: 123 €</p>
-            </div>
-        </div>
-
         <section class="content">
-            <h2>Как се облага наемният доход в България?</h2>
-            <p>
-                Наемният доход от недвижими имоти в България се облага с данък върху общ доход от 10%. Това е един от най-ниските проценти в Европа и е приложим за всички физически лица, които получават доход от наемане на имоти.
-            </p>
-            <p>
-                Брутният наемен доход е общата сума, която получавате от наематели за периода. От нея може да deducting допустими разходи, които намаляват облагаемия доход. Имате два варианта за deducting на разходи: фиксиран процент от 25% от брутния наем, или действителни разходи, които можете да докажете с документи.
-            </p>
-            <p>
-                Фиксираният процент от 25% е най-лесният вариант и не изисква събиране на документи. Той е подходящ за по-малки имоти или когато действителните разходи са под 25%. Ако обаче имате значителни разходи за поддръжка, ремонти или данъци върху имота, може да е по-изгодно да използвате действителните разходи.
-            </p>
-            <p>
-                Освен данъка върху дохода, собствениците на имоти трябва да плащат и такса смет, която е задължителна за всички имоти. Размерът на таксата се определя от общината и се различава по различни градове и квартали. Таксата се плаща годишно, независимо дали имотът е обитаван или наеман.
-            </p>
-            <p>
-                Важно е да отбележим, че декларирането на наемен доход пред НАП е задължително. Годишната данъчна декларация се подава до 30 април на следващата година, а данъкът се плаща до 30 юни. Неподадена декларация или укриване на доход може да доведе до санкции и лихви.
-            </p>
+            <h2>Как работи сметката</h2>
+            <p>За стандартен случай при местно физическо лице калкулаторът намалява брутния доход от наем с 10% нормативно признати разходи, след което прилага 10% данък върху останалата сума. НАП посочва, че нормативно признатите разходи не се приспадат при определени случаи, включително наем за имущество в режим на етажна собственост с управление чрез общо събрание.</p>
+            <p>Това не е калкулатор за такса смет: тя е отделно местно задължение и размерът ѝ не се определя само от дохода от наем. Сметката не включва осигурителни вноски, данъчни облекчения, съсобственост, чуждестранни лица или специални режими.</p>
+            <p>За авансовото деклариране/плащане и годишната декларация проверявайте актуалните срокове и особености на <a href="https://www.nra.bg/wps/wcm/connect/nra.bg25863/agency/site/taxes/danak-vurhu-dohodite-na-fizicheski-lica/naem/" target="_blank" rel="noopener noreferrer">НАП — доходи от наем</a>. Източникът е проверен на 2 ноември 2026 г.</p>
         </section>
-
         <section class="faq">
             <h2>Често задавани въпроси</h2>
-
-            <div class="faq-item">
-                <h3>Какъв е данъкът върху наемен доход в България?</h3>
-                <p>
-                    Данъкът върху наемен доход в България е 10% от нетния доход. Нетният доход се получава след deducting на допустимите разходи от брутния наем. Максимално deducting на разходи е 25% от брутния наем, освен ако докажете действителни по-високи разходи.
-                </p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Какви са допустимите разходи за наемен доход?</h3>
-                <p>
-                    Допустимите разходи могат да бъдат или фиксиран процент (25% от брутния наем), или действителни разходи като поддръжка, ремонти, данъци върху имота, такса смет и други свързани с имота разходи. Трябва да изберете едно от двете и да го прилагате последователно.
-                </p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Трябва ли да плащам такса смет за наемани имоти?</h3>
-                <p>
-                    Да, таксата смет е задължителна за всички имоти, независимо дали са обитавани от собственика или наемани. Размерът на таксата се определя от общината и се различава по различни градове и квартали. Таксата се плаща годишно.
-                </p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Кога трябва да декларирам наемен доход?</h3>
-                <p>
-                    Наемният доход трябва да се декларира annually пред НАП чрез годишна данъчна декларация (форма 1). Декларацията се подава до 30 април на следващата година за доходите от предходната година. Данъкът се плаща до 30 юни.
-                </p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Мога ли да не декларирам наемен доход?</h3>
-                <p>
-                    Не, декларирането на наемен доход е задължително по закон. Неподадена декларация или укриване на доход може да доведе до санкции, лихви и данъчни проверки. НАП има достъп до банкови транзакции и може да открие недекларирани доходи.
-                </p>
-            </div>
+            <div class="faq-item"><h3>Как се изчислява данъкът върху доход от наем?</h3><p>За опростения стандартен случай доходът се намалява с 10% нормативно признати разходи, а върху останалата данъчна основа се прилага ставка 10%. Има законови изключения и специфични случаи.</p></div>
+            <div class="faq-item"><h3>Мога ли да приспадна действителните разходи?</h3><p>Калкулаторът не приспада действителни разходи. НАП посочва нормативно признати разходи, като има изключения, например определен режим на етажна собственост. Проверете указанията на НАП за своя случай.</p></div>
+            <div class="faq-item"><h3>Кога се декларира и плаща данъкът?</h3><p>Сроковете зависят от това кой е наемателят и от периода на дохода. НАП публикува срокове за авансов данък и годишно деклариране; проверете актуалните срокове за конкретната година.</p></div>
         </section>
-
-        <footer>
-            <p>&copy; 2026 BG Calculators. Всички права запазени.</p>
-            <p>
-                <a href="../privacy.html">Политика за поверителност</a> |
-                <a href="../about.html">За нас</a>
-            </p>
-        </footer>
+        <footer><p>&copy; 2026 BG Calculators.</p></footer>
     </div>
-
     <script src="../js/rates_loader.js"></script>
     <script src="../js/main.js"></script>
     <script>
-        // Wait for rates to load before enabling form
-        let ratesLoaded = false;
-
-        document.addEventListener('DOMContentLoaded', function() {
-            loadRates().then(() => {
-                ratesLoaded = true;
-                console.log('Rates loaded, calculator ready');
-            });
-        });
-        // Toggle actual expenses input
-        document.getElementById('expenseType').addEventListener('change', function() {
-            const actualGroup = document.getElementById('actualExpensesGroup');
-            if (this.value === 'actual') {
-                actualGroup.style.display = 'block';
-            } else {
-                actualGroup.style.display = 'none';
-            }
-        });
-
-        // Toggle custom waste tax input
-        document.getElementById('municipality').addEventListener('change', function() {
-            const customGroup = document.getElementById('customWasteTaxGroup');
-            if (this.value === 'other') {
-                customGroup.style.display = 'block';
-            } else {
-                customGroup.style.display = 'none';
-            }
-        });
-
-        // Form submission
-        document.getElementById('rentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Check if rates are loaded
-            if (!ratesLoaded) {
-                alert('Зареждане на ставките... Моля изчакайте и опитайте отново.');
-                return;
-            }
-
-            // Hide previous errors
+        document.getElementById('rentForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
             hideError('monthlyRentError');
             hideError('monthsError');
-            hideError('actualExpensesError');
-            hideError('customWasteTaxError');
-
-            // Get values
-            const monthlyRent = parseFloat(document.getElementById('monthlyRent').value);
-            const months = parseInt(document.getElementById('months').value);
-            const expenseType = document.getElementById('expenseType').value;
-            const actualExpenses = parseFloat(document.getElementById('actualExpenses').value);
-            const municipality = document.getElementById('municipality').value;
-            const customWasteTax = parseFloat(document.getElementById('customWasteTax').value);
-
-            // Validate
-            let hasError = false;
-
-            if (!isValidNumber(monthlyRent) || monthlyRent < 0) {
-                showError('monthlyRentError', 'Моля въведете валиден месечен наем');
-                hasError = true;
+            const rentRaw = document.getElementById('monthlyRent').value;
+            const monthsRaw = document.getElementById('months').value;
+            const months = Number(monthsRaw);
+            let valid = true;
+            if (!isValidNumber(rentRaw)) {
+                showError('monthlyRentError', 'Въведете валидна неотрицателна сума.');
+                valid = false;
             }
-
-            if (isNaN(months) || months < 1 || months > 12) {
-                showError('monthsError', 'Броят месеци трябва да е между 1 и 12');
-                hasError = true;
+            if (!Number.isInteger(months) || months < 1 || months > 12) {
+                showError('monthsError', 'Въведете цяло число от 1 до 12.');
+                valid = false;
             }
-
-            if (expenseType === 'actual') {
-                if (!isValidNumber(actualExpenses) || actualExpenses < 0) {
-                    showError('actualExpensesError', 'Моля въведете валидна сума за разходи');
-                    hasError = true;
-                }
+            if (!valid) return;
+            let rates;
+            try {
+                rates = await loadRates();
+            } catch (error) {
+                showError('monthlyRentError', 'Ставките не се заредиха. Обновете страницата и опитайте отново.');
+                return;
             }
-
-            if (municipality === 'other') {
-                if (!isValidNumber(customWasteTax) || customWasteTax < 0) {
-                    showError('customWasteTaxError', 'Моля въведете валидна такса смет');
-                    hasError = true;
-                }
-            }
-
-            if (hasError) return;
-
-            // Calculate gross rent for the year
-            const grossRent = monthlyRent * months;
-
-            // Calculate expenses
-            let expenses;
-            if (expenseType === 'percentage') {
-                expenses = grossRent * RATES.rentalTax.maxDeductiblePercent;
-            } else {
-                expenses = actualExpenses;
-            }
-
-            // Calculate net income (taxable)
-            const netIncome = grossRent - expenses;
-
-            // Calculate income tax
-            const incomeTax = netIncome * RATES.rentalTax.rate;
-
-            // Calculate waste tax
-            let wasteTax;
-            if (municipality === 'other') {
-                wasteTax = customWasteTax;
-            } else {
-                wasteTax = RATES.propertyTax.wasteTax[municipality] || 31;
-            }
-
-            // Calculate total due
-            const totalDue = incomeTax + wasteTax;
-
-            // Calculate net income after tax
-            const netAfterTax = grossRent - totalDue;
-
-            // Display results
-            document.getElementById('resultGrossRent').textContent = formatBGN(grossRent);
-            document.getElementById('resultExpenses').textContent = formatBGN(expenses);
-            document.getElementById('resultNetIncome').textContent = formatBGN(netIncome);
-            document.getElementById('resultIncomeTax').textContent = formatBGN(incomeTax);
-            document.getElementById('resultWasteTax').textContent = formatBGN(wasteTax);
-            document.getElementById('resultTotalDue').textContent = formatBGN(totalDue);
-            document.getElementById('resultNetAfterTax').textContent = formatBGN(netAfterTax);
-
-            // Show results
+            const grossRent = Number(rentRaw) * months;
+            const expenses = grossRent * rates.rentalTax.recognizedExpensesPercent;
+            const taxableIncome = grossRent - expenses;
+            const incomeTax = taxableIncome * rates.rentalTax.rate;
+            document.getElementById('resultGrossRent').textContent = formatEUR(roundTo(grossRent));
+            document.getElementById('resultExpenses').textContent = formatEUR(roundTo(expenses));
+            document.getElementById('resultNetIncome').textContent = formatEUR(roundTo(taxableIncome));
+            document.getElementById('resultIncomeTax').textContent = formatEUR(roundTo(incomeTax));
+            document.getElementById('resultNetAfterTax').textContent = formatEUR(roundTo(grossRent - incomeTax));
             document.getElementById('results').classList.add('visible');
         });
     </script>

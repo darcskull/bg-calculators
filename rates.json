@@ -4,57 +4,32 @@
     "lastVerified": "2026-11-02",
     "currency": "EUR",
     "exchangeRate": 1.95583,
-    "source": "check_rates_simple.py"
+    "sources": {
+      "employmentInsurance": "https://nra.bg/wps/wcm/connect/agency/site/zakonodatelstvo/osiguryavane/stanovishta.ukazaniya.naruchnici/a10b7cdf-bc6b-4983-b604-1b7b593eb378",
+      "insuranceThresholds": "https://www.nssi.bg/dohod01082026/",
+      "incomeTax": "https://nra.bg/wps/wcm/connect/agency/site/taxes/danak-vurhu-dohodite-na-fizicheski-lica/danak-vurhu-dohodite-na-fizicheskite-lica",
+      "rentalIncome": "https://www.nra.bg/wps/wcm/connect/nra.bg25863/agency/site/taxes/danak-vurhu-dohodite-na-fizicheski-lica/naem/",
+      "vat": "https://nra.bg/wps/portal/nra/taxes/dds-v-balgariya/"
+    },
+    "notes": "Reviewed against the official pages above on 2026-11-02. This calculator covers simplified, typical cases and does not replace individual tax advice."
   },
   "insurance": {
-    "employee": {
-      "pension": 0.022,
-      "unemployment": 0.015,
-      "general": 0.015,
-      "total": 0.039
-    },
-    "employer": {
-      "pension": 0.074,
-      "unemployment": 0.01,
-      "accidents": 0.04,
-      "general": 0.015,
-      "total": 0.139
-    },
-    "minimumThreshold": 475,
-    "maximumThreshold": 1918
+    "employeeRate": 0.1378,
+    "maximumThreshold": {
+      "throughJuly2026": 2111.64,
+      "fromAugust2026": 2300.0
+    }
   },
   "incomeTax": {
-    "rate": 0.1,
-    "nonTaxableMinimum": 0
+    "rate": 0.1
   },
   "vat": {
     "standard": 0.2,
-    "reduced": 0.09
-  },
-  "propertyTax": {
-    "baseRate": 0.0015,
-    "wasteTax": {
-      "Sofia": 31,
-      "Plovdiv": 25,
-      "Varna": 28,
-      "Burgas": 26,
-      "Ruse": 23,
-      "StaraZagora": 21,
-      "Pleven": 20,
-      "Dobrich": 19,
-      "Sliven": 18,
-      "Shumen": 19
-    }
+    "reduced": 0.09,
+    "zero": 0.0
   },
   "rentalTax": {
     "rate": 0.1,
-    "maxDeductiblePercent": 0.25,
-    "allowActualExpenses": true
-  },
-  "selfEmployed": {
-    "minimumIncome": 475,
-    "pension": true,
-    "unemployment": false,
-    "general": true
+    "recognizedExpensesPercent": 0.1
   }
 }
