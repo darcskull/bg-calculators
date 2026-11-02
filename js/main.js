@@ -1,85 +1,44 @@
-/**
- * Common utility functions for calculators
- */
+/** Shared formatting and validation helpers for the calculators. */
 
-/**
- * Format number as Euro (EUR)
- * @param {number} amount - Amount to format
- * @param {number} decimals - Number of decimal places (default: 2)
- * @returns {string} Formatted EUR amount
- */
 function formatEUR(amount, decimals = 2) {
-    if (isNaN(amount)) return '0.00 €';
-    return amount.toFixed(decimals).replace('.', ',') + ' €';
+    if (!Number.isFinite(amount)) return '—';
+    return new Intl.NumberFormat('bg-BG', {
+        style: 'currency',
+        currency: 'EUR',
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals
+    }).format(amount);
 }
 
-// Keep formatBGN for backward compatibility (deprecated)
-function formatBGN(amount, decimals = 2) {
-    return formatEUR(amount, decimals);
-}
-
-/**
- * Format number as percentage
- * @param {number} value - Decimal value (e.g., 0.10 for 10%)
- * @returns {string} Formatted percentage
- */
 function formatPercent(value) {
-    if (isNaN(value)) return '0%';
-    return (value * 100).toFixed(2) + '%';
+    if (!Number.isFinite(value)) return '—';
+    return `${(value * 100).toLocaleString('bg-BG', { maximumFractionDigits: 2 })}%`;
 }
 
-/**
- * Validate if input is a positive number
- * @param {string|number} value - Input value
- * @returns {boolean} True if valid
- */
 function isValidNumber(value) {
-    const num = parseFloat(value);
-    return !isNaN(num) && num >= 0;
+    if (typeof value === 'string' && value.trim() === '') return false;
+    const number = Number(value);
+    return Number.isFinite(number) && number >= 0;
 }
 
-/**
- * Show error message
- * @param {string} elementId - ID of error element
- * @param {string} message - Error message
- */
 function showError(elementId, message) {
-    const errorEl = document.getElementById(elementId);
-    if (errorEl) {
-        errorEl.textContent = message;
-        errorEl.style.display = 'block';
+    const errorElement = document.getElementById(elementId);
+    if (errorElement) {
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
     }
 }
 
-/**
- * Hide error message
- * @param {string} elementId - ID of error element
- */
 function hideError(elementId) {
-    const errorEl = document.getElementById(elementId);
-    if (errorEl) {
-        errorEl.style.display = 'none';
-    }
+    const errorElement = document.getElementById(elementId);
+    if (errorElement) errorElement.style.display = 'none';
 }
 
-/**
- * Clamp value between min and max
- * @param {number} value - Value to clamp
- * @param {number} min - Minimum value
- * @param {number} max - Maximum value
- * @returns {number} Clamped value
- */
-function clamp(value, min, max) {
-    return Math.min(Math.max(value, min), max);
+function clamp(value, minimum, maximum) {
+    return Math.min(Math.max(value, minimum), maximum);
 }
 
-/**
- * Round to decimal places
- * @param {number} value - Value to round
- * @param {number} decimals - Decimal places
- * @returns {number} Rounded value
- */
 function roundTo(value, decimals = 2) {
-    const factor = Math.pow(10, decimals);
-    return Math.round(value * factor) / factor;
+    const factor = 10 ** decimals;
+    return Math.round((value + Number.EPSILON) * factor) / factor;
 }

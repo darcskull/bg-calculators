@@ -3,347 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калкулатор за нетна заплата от брутна | България 2026 - Безплатно (€)</title>
-    <meta name="description" content="Безплатен онлайн калкулатор за изчисляване на нетна заплата от брутна в България за 2026 година в евро. Включва осигуровки за служител, данък върху общ доход и детски добавки. Бързи и точни изчисления.">
+    <title>Калкулатор за нетна заплата от брутна | България</title>
+    <meta name="description" content="Изчислете ориентировъчно нетната заплата от брутна сума в евро. Изберете периода на осигурителния таван и въведете приложимия осигурителен доход, ако е различен от заплатата.">
     <link rel="stylesheet" href="../css/style.css">
-
-    <!-- Schema.org FAQPage markup -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "Каква е разликата между брутна и нетна заплата?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Брутната заплата е сумата, която работодателят се ангажира да плати преди deducting на каквито и да е осигуровки и данъци. Нетната заплата е сумата, която служителят фактически получава по банковата си сметка след deducting на задължителните осигуровки за служител (3.9%) и данъка върху общ доход (10%)."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Какви осигуровки плаща служителят в България?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Служителят в България плаща общо 3.9% осигуровки върху осигурителния си доход. Тези включват: пенсионно осигуряване (2.2%), универсално осигуряване за безработица (1.5%) и общо заболяване и майчинство (1.5%). Работодателят плаща допълнителни осигуровки, които не се deducting от нетната заплата на служителя."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Какъв е данъкът върху общ доход в България?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Данъкът върху общ доход в България е фиксиран – 10% от облагаемия доход. Това е приложимо за всички физически лица и няма прогресивна скала, което означава, че независимо от размера на дохода, процентът остава същият. България има една от най-ниските ставки за данък върху дохода в Европейския съюз."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Какво е осигурителен праг и защо е важен?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Осигурителният праг е доходът, върху който се изчисляват осигуровките. В България има минимален (930 лв.) и максимален (3750 лв.) осигурителен праг. Ако брутната заплата е под минимума, осигуровките се изчисляват върху минимума. Ако е над максимума – върху максимума. Това означава, че за високи заплати процентът на осигуровките намалява."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Как получавам детски добавки към заплатата си?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Детските добавки се предоставят от държавата и могат да се получават като допълнение към нетната заплата. Размерът зависи от броя на децата и тяхната възраст. Работодателят може да изплати тези добавки заедно със заплатата, ако е упълномощен от служителя. За точна информация относно размерите и условията, консултирайте се с НАП или работодателя си."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Точни ли са изчисленията в този калкулатор?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Калкулаторът използва актуални данъчни ставки и осигурителни прагове за 2026 година, но е важно да отбележим, че ставките могат да се променят периодично. За напълно точни изчисления винаги проверявайте актуалните ставки на официалния сайт на НАП (nap.bg) или консултирайте се със счетоводител. Калкулаторът е предназначен за информационни цели."
-                }
-            }
+            {"@type":"Question","name":"Как се изчислява ориентировъчната нетна заплата?","acceptedAnswer":{"@type":"Answer","text":"От брутната сума се приспада личната осигурителна вноска върху осигурителния доход, след което върху данъчната основа се прилага данъкът върху доходите. Резултатът е ориентировъчен и зависи от осигурителния доход и конкретния случай."}},
+            {"@type":"Question","name":"Защо трябва да въведа осигурителен доход?","acceptedAnswer":{"@type":"Answer","text":"Минималният осигурителен доход за работник зависи от икономическата дейност и квалификационната група. Ако знаете приложимия доход от фиша си или от работодателя, въведете го. Ако го оставите празно, калкулаторът използва брутната сума до максималния праг."}},
+            {"@type":"Question","name":"Кой максимален осигурителен доход се използва?","acceptedAnswer":{"@type":"Answer","text":"Изберете периода. Максималният месечен осигурителен доход е 2 111,64 евро до 31 юли 2026 г. и 2 300 евро от 1 август 2026 г., според публикуваната информация на НОИ."}}
         ]
     }
     </script>
 </head>
 <body>
     <div class="container">
+        <aside class="site-notice" role="note" aria-label="Важно уточнение">
+            <strong>Важно: резултатите са само ориентировъчни.</strong>
+            Информацията може да е непълна, неточна или остаряла и не представлява данъчен, финансов, правен или нотариален съвет. Не вземайте решения и не извършвайте плащания само въз основа на тези изчисления; проверете случая си с компетентен специалист и официален източник. Сайтът се предоставя „както е“; доколкото приложимото право позволява, създателят не носи отговорност за вреди от използването на информацията или калкулаторите. Това уточнение не ограничава права, които законът не позволява да бъдат ограничавани.
+        </aside>
         <header>
             <h1>Калкулатор за нетна заплата</h1>
-            <p>Изчислете нетната си заплата от брутна за 2026 година</p>
+            <p>Ориентировъчно изчисление за стандартен трудов договор, III категория труд</p>
         </header>
-
         <nav>
             <ul>
                 <li><a href="../index.html">Начало</a></li>
-                <li><a href="vat-calculator.html">ДДС Калкулатор</a></li>
+                <li><a href="vat-calculator.html">ДДС калкулатор</a></li>
                 <li><a href="rent-tax-calculator.html">Данък върху наем</a></li>
+                <li><a href="notary-fee-calculator.html">Нотариална такса (ориентировъчно)</a></li>
             </ul>
         </nav>
 
-        <form class="calculator-form" id="salaryForm">
+        <form class="calculator-form" id="salaryForm" novalidate>
             <div class="form-group">
-                <label for="grossSalary">Брутна заплата (€):</label>
-                <input type="number" id="grossSalary" min="0" step="0.01" placeholder="Напр. 1023">
+                <label for="grossSalary">Брутна месечна заплата (€):</label>
+                <input type="number" id="grossSalary" min="0" step="0.01" inputmode="decimal" required>
                 <div class="error" id="grossSalaryError"></div>
             </div>
-
             <div class="form-group">
-                <label for="insuranceThreshold">Осигурителен праг:</label>
-                <select id="insuranceThreshold">
-                    <option value="standard">Стандартен (475 - 1918 €)</option>
-                    <option value="minimum">Минимален (475 €)</option>
-                    <option value="maximum">Максимален (1918 €)</option>
-                    <option value="custom">По избор</option>
+                <label for="period">Период за максималния осигурителен доход:</label>
+                <select id="period">
+                    <option value="fromAugust2026" selected>1 август – 31 декември 2026 г.</option>
+                    <option value="throughJuly2026">1 януари – 31 юли 2026 г.</option>
                 </select>
             </div>
-
-            <div class="form-group" id="customThresholdGroup" style="display: none;">
-                <label for="customThreshold">Осигурителен доход по избор (€):</label>
-                <input type="number" id="customThreshold" min="475" max="1918" step="0.01" placeholder="Между 475 и 1918">
-                <div class="error" id="customThresholdError"></div>
-            </div>
-
             <div class="form-group">
-                <label for="children">Брой деца (за добавки):</label>
-                <input type="number" id="children" min="0" max="10" step="1" value="0">
-                <div class="error" id="childrenError"></div>
+                <label for="insuranceBase">Осигурителен доход (€), ако е различен от брутната заплата:</label>
+                <input type="number" id="insuranceBase" min="0" step="0.01" inputmode="decimal" placeholder="Оставете празно за ориентировъчна стойност">
+                <div class="error" id="insuranceBaseError"></div>
             </div>
-
+            <p>Минималният осигурителен доход за наетите лица зависи от дейността и квалификационната група. Ако не знаете приложимия праг, резултатът може да се различава от фиша ви.</p>
             <button type="submit">Изчисли нетна заплата</button>
         </form>
 
-        <div class="results" id="results">
-            <h2>Резултат</h2>
-            <div class="result-row">
-                <span class="result-label">Брутна заплата:</span>
-                <span class="result-value" id="resultGross">0.00 лв.</span>
-            </div>
-            <div class="result-row">
-                <span class="result-label">Осигурителен доход:</span>
-                <span class="result-value" id="resultInsuranceBase">0.00 лв.</span>
-            </div>
-            <div class="result-row">
-                <span class="result-label">Осигуровки за служител (3.9%):</span>
-                <span class="result-value" id="resultEmployeeInsurance">0.00 лв.</span>
-            </div>
-            <div class="result-row">
-                <span class="result-label">Облагаем доход:</span>
-                <span class="result-value" id="resultTaxableIncome">0.00 лв.</span>
-            </div>
-            <div class="result-row">
-                <span class="result-label">Данък върху общ доход (10%):</span>
-                <span class="result-value" id="resultIncomeTax">0.00 лв.</span>
-            </div>
-            <div class="result-row">
-                <span class="result-label">Детски добавки:</span>
-                <span class="result-value" id="resultChildBenefits">0.00 лв.</span>
-            </div>
-            <div class="result-row total">
-                <span class="result-label">Нетна заплата:</span>
-                <span class="result-value" id="resultNetSalary">0.00 лв.</span>
-            </div>
-        </div>
-
-        <div class="examples">
-            <h3>Примери за изчисление</h3>
-            <div class="example">
-                <h4>Пример 1: Минимална заплата</h4>
-                <p>Брутна: 475 € | Осигуровки: 18.53 € | Данък: 45.65 € | Нетна: 411.12 €</p>
-            </div>
-            <div class="example">
-                <h4>Пример 2: Средна заплата</h4>
-                <p>Брутна: 1023 € | Осигуровки: 39.90 € | Данък: 98.31 € | Нетна: 884.41 €</p>
-            </div>
-            <div class="example">
-                <h4>Пример 3: Висока заплата (над максимума)</h4>
-                <p>Брутна: 2558 € | Осигуровки: 74.80 € | Данък: 248.32 € | Нетна: 2235.52 €</p>
-            </div>
+        <div class="results" id="results" aria-live="polite">
+            <h2>Ориентировъчен резултат</h2>
+            <div class="result-row"><span class="result-label">Брутна заплата:</span><span class="result-value" id="resultGross">—</span></div>
+            <div class="result-row"><span class="result-label">Осигурителен доход:</span><span class="result-value" id="resultInsuranceBase">—</span></div>
+            <div class="result-row"><span class="result-label">Лични осигуровки (стандартен случай):</span><span class="result-value" id="resultEmployeeInsurance">—</span></div>
+            <div class="result-row"><span class="result-label">Данъчна основа:</span><span class="result-value" id="resultTaxableIncome">—</span></div>
+            <div class="result-row"><span class="result-label">Данък върху дохода:</span><span class="result-value" id="resultIncomeTax">—</span></div>
+            <div class="result-row total"><span class="result-label">Нетна заплата:</span><span class="result-value" id="resultNetSalary">—</span></div>
         </div>
 
         <section class="content">
-            <h2>Как се изчислява нетната заплата в България?</h2>
-            <p>
-                Нетната заплата е сумата, която служителят получава след deducting на задължителните осигуровки и данъци от брутната заплата. В България изчислението на нетната заплата включва няколко компонента, които е важно да разберете.
-            </p>
-            <p>
-                Първо, от брутната заплата се deducting осигуровките за служител, които са общо 3.9%. Те включват пенсионно осигуряване (2.2%), универсално осигуряване за безработица (1.5%) и общо заболяване и майчинство (1.5%). Осигуровките се изчисляват върху осигурителния доход, който е ограничен между минимален и максимален праг.
-            </p>
-            <p>
-                След deducting на осигуровките се получава облагаемият доход. От него се deducting данъкът върху общ доход, който в България е фиксиран – 10%. Това е една от най-ниските ставки в Европейския съюз и е приложима за всички доходи без прогресивна скала.
-            </p>
-            <p>
-                Ако имате деца, можете да получите детски добавки, които се добавят към нетната заплата. Размерът на добавките зависи от броя на децата и възрастта им. Калкулаторът използва усреднена стойност, но точните размери може да се различават според актуалните наредби.
-            </p>
-            <p>
-                Важно е да отбележим, че осигурителният доход може да се различава от брутната заплата. Минималният осигурителен доход за 2026 година е 475 €, а максималният – 1918 €. Ако брутната заплата е под минимума, осигуровките се изчисляват върху минимума. Ако е над максимума – върху максимума.
-            </p>
-            <p>
-                Този калкулатор ви помага бързо да разберете колко ще получите на ръка от предложената брутна заплата, което е полезно при преговори за работа или при планиране на бюджета си.
-            </p>
+            <h2>Какво включва изчислението</h2>
+            <p>Калкулаторът използва лична осигурителна вноска 13,78% и данък върху дохода 10% за стандартен случай при трудов договор. Осигурителният доход е ограничен до избрания максимален праг. Не се изчисляват данъчни облекчения, допълнителни трудови договори, непълен месец, специални категории труд или индивидуални особености.</p>
+            <p>За наетите лица минималният осигурителен доход се определя според основната икономическа дейност и квалификационната група. Въведете приложимия осигурителен доход, ако го знаете. Празното поле използва брутната заплата, ограничена до максимума, и може да даде различен резултат при приложим минимален праг.</p>
+            <p>Източници: <a href="https://nra.bg/wps/wcm/connect/agency/site/zakonodatelstvo/osiguryavane/stanovishta.ukazaniya.naruchnici/a10b7cdf-bc6b-4983-b604-1b7b593eb378" target="_blank" rel="noopener noreferrer">таблица на НАП за осигурителните вноски за 2026 г.</a>, <a href="https://www.nssi.bg/dohod01082026/" target="_blank" rel="noopener noreferrer">прагове на НОИ от 1 август 2026 г.</a> и <a href="https://nra.bg/wps/wcm/connect/agency/site/taxes/danak-vurhu-dohodite-na-fizicheski-lica/danak-vurhu-dohodite-na-fizicheskite-lica" target="_blank" rel="noopener noreferrer">НАП — данък върху доходите на физическите лица</a>. Проверени на 2 ноември 2026 г.</p>
         </section>
-
         <section class="faq">
             <h2>Често задавани въпроси</h2>
-
-            <div class="faq-item">
-                <h3>Каква е разликата между брутна и нетна заплата?</h3>
-                <p>
-                    Брутната заплата е сумата, която работодателят се ангажира да плати преди deducting на каквито и да е осигуровки и данъци. Нетната заплата е сумата, която служителят фактически получава по банковата си сметка след deducting на задължителните осигуровки за служител (3.9%) и данъка върху общ доход (10%).
-                </p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Какви осигуровки плаща служителят в България?</h3>
-                <p>
-                    Служителят в България плаща общо 3.9% осигуровки върху осигурителния си доход. Тези включват: пенсионно осигуряване (2.2%), универсално осигуряване за безработица (1.5%) и общо заболяване и майчинство (1.5%). Работодателят плаща допълнителни осигуровки, които не се deducting от нетната заплата на служителя.
-                </p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Какъв е данъкът върху общ доход в България?</h3>
-                <p>
-                    Данъкът върху общ доход в България е фиксиран – 10% от облагаемия доход. Това е приложимо за всички физически лица и няма прогресивна скала, което означава, че независимо от размера на дохода, процентът остава същият. България има една от най-ниските ставки за данък върху дохода в Европейския съюз.
-                </p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Какво е осигурителен праг и защо е важен?</h3>
-                <p>
-                    Осигурителният праг е доходът, върху който се изчисляват осигуровките. В България има минимален (930 лв.) и максимален (3750 лв.) осигурителен праг. Ако брутната заплата е под минимума, осигуровките се изчисляват върху минимума. Ако е над максимума – върху максимума. Това означава, че за високи заплати процентът на осигуровките намалява.
-                </p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Как получавам детски добавки към заплатата си?</h3>
-                <p>
-                    Детските добавки се предоставят от държавата и могат да се получават като допълнение към нетната заплата. Размерът зависи от броя на децата и тяхната възраст. Работодателят може да изплати тези добавки заедно със заплатата, ако е упълномощен от служителя. За точна информация относно размерите и условията, консултирайте се с НАП или работодателя си.
-                </p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Точни ли са изчисленията в този калкулатор?</h3>
-                <p>
-                    Калкулаторът използва актуални данъчни ставки и осигурителни прагове за 2026 година, но е важно да отбележим, че ставките могат да се променят периодично. За напълно точни изчисления винаги проверявайте актуалните ставки на официалния сайт на НАП (nap.bg) или консултирайте се със счетоводител. Калкулаторът е предназначен за информационни цели.
-                </p>
-            </div>
+            <div class="faq-item"><h3>Как се изчислява ориентировъчната нетна заплата?</h3><p>От брутната сума се приспада личната осигурителна вноска върху осигурителния доход, след което върху данъчната основа се прилага данъкът върху доходите. Резултатът е ориентировъчен и зависи от осигурителния доход и конкретния случай.</p></div>
+            <div class="faq-item"><h3>Защо трябва да въведа осигурителен доход?</h3><p>Минималният осигурителен доход за работник зависи от икономическата дейност и квалификационната група. Ако знаете приложимия доход от фиша си или от работодателя, въведете го. Ако го оставите празно, калкулаторът използва брутната сума до максималния праг.</p></div>
+            <div class="faq-item"><h3>Кой максимален осигурителен доход се използва?</h3><p>Изберете периода. Максималният месечен осигурителен доход е 2 111,64 евро до 31 юли 2026 г. и 2 300 евро от 1 август 2026 г., според публикуваната информация на НОИ.</p></div>
         </section>
-
-        <footer>
-            <p>&copy; 2026 BG Calculators. Всички права запазени.</p>
-            <p>
-                <a href="../privacy.html">Политика за поверителност</a> |
-                <a href="../about.html">За нас</a>
-            </p>
-        </footer>
+        <footer><p>&copy; 2026 BG Calculators.</p></footer>
     </div>
-
     <script src="../js/rates_loader.js"></script>
     <script src="../js/main.js"></script>
     <script>
-        // Wait for rates to load before enabling form
-        let ratesLoaded = false;
-
-        // Override the form submission to check if rates are loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            loadRates().then(() => {
-                ratesLoaded = true;
-                console.log('Rates loaded, calculator ready');
-            });
-        });
-        // Toggle custom threshold input
-        document.getElementById('insuranceThreshold').addEventListener('change', function() {
-            const customGroup = document.getElementById('customThresholdGroup');
-            if (this.value === 'custom') {
-                customGroup.style.display = 'block';
-            } else {
-                customGroup.style.display = 'none';
+        document.getElementById('salaryForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            ['grossSalaryError', 'insuranceBaseError'].forEach(hideError);
+            let valid = true;
+            const grossRaw = document.getElementById('grossSalary').value;
+            const insuranceRaw = document.getElementById('insuranceBase').value;
+            const gross = Number(grossRaw);
+            if (!isValidNumber(grossRaw)) {
+                showError('grossSalaryError', 'Въведете валидна неотрицателна сума.');
+                valid = false;
             }
-        });
-
-        // Form submission
-        document.getElementById('salaryForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Check if rates are loaded
-            if (!ratesLoaded) {
-                alert('Зареждане на ставките... Моля изчакайте и опитайте отново.');
+            if (insuranceRaw !== '' && !isValidNumber(insuranceRaw)) {
+                showError('insuranceBaseError', 'Въведете валиден неотрицателен осигурителен доход.');
+                valid = false;
+            }
+            if (!valid) return;
+            let rates;
+            try {
+                rates = await loadRates();
+            } catch (error) {
+                showError('grossSalaryError', 'Ставките не се заредиха. Обновете страницата и опитайте отново.');
                 return;
             }
-
-            // Hide previous errors
-            hideError('grossSalaryError');
-            hideError('customThresholdError');
-            hideError('childrenError');
-
-            // Get values
-            const grossSalary = parseFloat(document.getElementById('grossSalary').value);
-            const thresholdType = document.getElementById('insuranceThreshold').value;
-            const customThreshold = parseFloat(document.getElementById('customThreshold').value);
-            const children = parseInt(document.getElementById('children').value);
-
-            // Validate
-            let hasError = false;
-
-            if (!isValidNumber(grossSalary) || grossSalary < 0) {
-                showError('grossSalaryError', 'Моля въведете валидна брутна заплата');
-                hasError = true;
+            const cap = rates.insurance.maximumThreshold[document.getElementById('period').value];
+            const requestedBase = insuranceRaw === '' ? gross : Number(insuranceRaw);
+            if (requestedBase > cap) {
+                showError('insuranceBaseError', `Осигурителният доход не може да надвишава ${formatEUR(cap)} за избрания период.`);
+                return;
             }
-
-            if (thresholdType === 'custom') {
-                if (!isValidNumber(customThreshold) || customThreshold < 475 || customThreshold > 1918) {
-                    showError('customThresholdError', 'Осигурителният доход трябва да е между 475 и 1918 €');
-                    hasError = true;
-                }
-            }
-
-            if (isNaN(children) || children < 0 || children > 10) {
-                showError('childrenError', 'Моля въведете валиден брой деца (0-10)');
-                hasError = true;
-            }
-
-            if (hasError) return;
-
-            // Calculate insurance base
-            let insuranceBase;
-            switch (thresholdType) {
-                case 'minimum':
-                    insuranceBase = RATES.insurance.minimumThreshold;
-                    break;
-                case 'maximum':
-                    insuranceBase = RATES.insurance.maximumThreshold;
-                    break;
-                case 'custom':
-                    insuranceBase = customThreshold;
-                    break;
-                default: // standard
-                    insuranceBase = clamp(grossSalary, RATES.insurance.minimumThreshold, RATES.insurance.maximumThreshold);
-            }
-
-            // Calculate employee insurance
-            const employeeInsurance = insuranceBase * RATES.insurance.employee.total;
-
-            // Calculate taxable income
-            const taxableIncome = grossSalary - employeeInsurance;
-
-            // Calculate income tax
-            const incomeTax = taxableIncome * RATES.incomeTax.rate;
-
-            // Calculate child benefits (simplified - VERIFY actual rates)
-            const childBenefits = children * 40; // 40 € per child - VERIFY
-
-            // Calculate net salary
-            const netSalary = grossSalary - employeeInsurance - incomeTax + childBenefits;
-
-            // Display results
-            document.getElementById('resultGross').textContent = formatBGN(grossSalary);
-            document.getElementById('resultInsuranceBase').textContent = formatBGN(insuranceBase);
-            document.getElementById('resultEmployeeInsurance').textContent = formatBGN(employeeInsurance);
-            document.getElementById('resultTaxableIncome').textContent = formatBGN(taxableIncome);
-            document.getElementById('resultIncomeTax').textContent = formatBGN(incomeTax);
-            document.getElementById('resultChildBenefits').textContent = formatBGN(childBenefits);
-            document.getElementById('resultNetSalary').textContent = formatBGN(netSalary);
-
-            // Show results
+            const insuranceBase = Math.min(requestedBase, cap);
+            const employeeInsurance = insuranceBase * rates.insurance.employeeRate;
+            const taxableIncome = Math.max(0, gross - employeeInsurance);
+            const incomeTax = taxableIncome * rates.incomeTax.rate;
+            const netSalary = gross - employeeInsurance - incomeTax;
+            document.getElementById('resultGross').textContent = formatEUR(gross);
+            document.getElementById('resultInsuranceBase').textContent = formatEUR(insuranceBase);
+            document.getElementById('resultEmployeeInsurance').textContent = `${formatEUR(employeeInsurance)} (${formatPercent(rates.insurance.employeeRate)})`;
+            document.getElementById('resultTaxableIncome').textContent = formatEUR(taxableIncome);
+            document.getElementById('resultIncomeTax').textContent = `${formatEUR(incomeTax)} (${formatPercent(rates.incomeTax.rate)})`;
+            document.getElementById('resultNetSalary').textContent = formatEUR(netSalary);
             document.getElementById('results').classList.add('visible');
         });
     </script>
