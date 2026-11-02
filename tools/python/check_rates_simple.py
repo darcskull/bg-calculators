@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[2]
 RATES_FILE = ROOT / "rates.json"
 
 
@@ -36,6 +36,8 @@ def main():
     print(f"- VAT standard / reduced / zero: {rates['vat']['standard']:.0%} / {rates['vat']['reduced']:.0%} / {rates['vat']['zero']:.0%}")
     print(f"- Rental income tax: {rates['rentalTax']['rate']:.0%}")
     print(f"- Rental recognized expenses: {rates['rentalTax']['recognizedExpensesPercent']:.0%}")
+    estimate = rates.get("notaryFeeEstimate", {})
+    print(f"- Notary fee estimate: {estimate.get('rate', 0):.1%} (user-requested approximation, not an official tariff; verified: {estimate.get('verified', False)})")
 
     print("\nManual checks before changing lastVerified:")
     print("[ ] НАП: income tax, rental income expenses, tax deadlines, VAT rates and eligible categories")

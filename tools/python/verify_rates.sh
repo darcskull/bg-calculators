@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 # Open official sources for manual verification; this script does not edit rates.
+SCRIPT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
 
 open_url() {
     if command -v xdg-open >/dev/null 2>&1; then
@@ -17,4 +18,5 @@ open_url "https://www.nra.bg/wps/wcm/connect/nra.bg25863/agency/site/taxes/danak
 open_url "https://nra.bg/wps/portal/nra/taxes/dds-v-balgariya/"
 
 printf '%s\n' "Review all values in rates.json; the script does not verify or change them."
-printf '%s\n' "Run python check_rates_simple.py for the manual checklist."
+printf '%s\n' "Run python3 tools/python/check_rates_simple.py for the manual checklist."
+python3 "$SCRIPT_DIR/check_rates_simple.py"

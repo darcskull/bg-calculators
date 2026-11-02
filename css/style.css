@@ -28,6 +28,22 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
+.site-notice {
+    margin: 0 0 20px;
+    padding: 14px 16px;
+    border: 1px solid #e3a008;
+    border-left: 5px solid #e3a008;
+    border-radius: 5px;
+    background: #fff8e1;
+    color: #513d00;
+    font-size: 0.95em;
+}
+
+.site-notice strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
 /* Header */
 header {
     text-align: center;
@@ -299,6 +315,11 @@ footer a:hover {
 
     .container {
         padding: 20px;
+    }
+
+    .site-notice {
+        padding: 12px;
+        font-size: 0.9em;
     }
 
     header h1 {

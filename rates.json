@@ -31,5 +31,10 @@
   "rentalTax": {
     "rate": 0.1,
     "recognizedExpensesPercent": 0.1
+  },
+  "notaryFeeEstimate": {
+    "rate": 0.035,
+    "source": "User-requested approximation; not an official tariff or independently verified value",
+    "verified": false
   }
 }
