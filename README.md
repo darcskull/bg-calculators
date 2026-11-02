@@ -99,7 +99,7 @@ chmod +x verify_rates.sh
 1. Създай репозитория в GitHub
 2. Качи файловете
 3. В Settings > Pages избери main branch
-4. Сайтът ще бъде достъпен на: https://yourusername.github.io/bg-calculators/
+4. Сайтът ще бъде достъпен на: https://yourusername.github.io/bg-calculators/ 
 
 **ВАЖНО:** Промени `yourusername` с твоя GitHub username в:
 - `sitemap.xml`
